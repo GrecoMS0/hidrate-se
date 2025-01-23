@@ -65,6 +65,20 @@ chrome.alarms.onAlarm.addListener((alarm) => {
                         reminderDiv.style.alignItems = "center";
                         reminderDiv.style.transition = "opacity 0.5s";
 
+                        const closeButton = document.createElement('button');
+                        closeButton.textContent = "X";
+                        closeButton.style.marginLeft = "10px";
+                        closeButton.style.backgroundColor = "red";
+                        closeButton.style.color = "white";
+                        closeButton.style.border = "none";
+                        closeButton.style.borderRadius = "50%";
+                        closeButton.style.width = "25px";
+                        closeButton.style.height = "25px";
+                        closeButton.style.cursor = "pointer";
+                        closeButton.style.fontSize = "16px";
+                        closeButton.addEventListener('click', () => reminderDiv.remove());
+                        reminderDiv.appendChild(closeButton);
+
                         switch (pos) {
                             case "top-left":
                                 reminderDiv.style.top = "20px";
@@ -100,7 +114,7 @@ chrome.alarms.onAlarm.addListener((alarm) => {
                         setTimeout(() => {
                             reminderDiv.style.opacity = "0";
                             setTimeout(() => { reminderDiv.remove(); }, 500);
-                        }, 5000);
+                        }, 40000);
                     },
                     args: [position, message, chrome.runtime.getURL(audioFile), data.playSound, data.volume]
                 });
