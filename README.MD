@@ -28,10 +28,9 @@ Como a extensão ainda não está disponível na Chrome Web Store, é necessári
      ```
 
    - Caso não utilize Git, siga os passos abaixo:
-     1. Acesse o repositório no GitHub: [https://github.com/seuusuario/hidrate-se](https://github.com/seuusuario/hidrate-se)
-     2. Clique no botão verde "Code".
-     3. Selecione a opção "Download ZIP".
-     4. Extraia o conteúdo do arquivo ZIP para uma pasta no seu computador.
+     1. Clique no botão verde "Code".
+     2. Selecione a opção "Download ZIP".
+     3. Extraia o conteúdo do arquivo ZIP para uma pasta no seu computador. (Selecionando a opção 'Extrair Aqui', por exemplo).
 
 #### 2️⃣ **Carregue a extensão no navegador**
    - Abra o navegador Google Chrome ou outro baseado em Chromium (Microsoft Edge, Opera, OperaGX, Brave e Vivaldi).
