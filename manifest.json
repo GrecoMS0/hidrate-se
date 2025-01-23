@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "Hidrate-se",
+    "version": "1.0",
+    "description": "Receba lembretes para beber água!",
+    "permissions": [
+        "notifications",
+        "storage",
+        "alarms",
+        "scripting",
+        "tabs"
+    ],
+    "host_permissions": [
+        "https://*/*",
+        "http://*/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    },
+    "icons": {
+        "128": "icon.png"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": ["*.mp3"],
+            "matches": ["<all_urls>"]
+        }
+    ]
+}

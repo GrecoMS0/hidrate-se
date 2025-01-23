@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidrate-se</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Hidrate-se</h1>
+        <div class="input-group">
+            <label for="interval">Lembre-me a cada:</label>
+            <select id="interval">
+                <option value="30">30 minutos</option>
+                <option value="60">1 hora</option>
+                <option value="120">2 horas</option>
+                <option value="150">2.5 horas</option>
+            </select>
+            <label class="switch">
+                <input type="checkbox" id="toggle-reminder">
+                <span class="slider round"></span>
+            </label>
+            <span id="reminder-status"></span>
+            <label for="position">Posição do lembrete:</label>
+            <select id="position">
+                <option value="top-right">Superior Direito</option>
+                <option value="top-left">Superior Esquerdo</option>
+                <option value="bottom-right">Inferior Direito</option>
+                <option value="bottom-left">Inferior Esquerdo</option>
+                <option value="center">Centro da Tela</option>
+            </select>
+            <label for="toggle-sound">Ativar Som:</label>
+            <label class="switch">
+                <input type="checkbox" id="toggle-sound">
+                <span class="slider round"></span>
+            </label>
+            <label for="volume">Volume:</label>
+            <input type="range" id="volume" min="0" max="100" value="100" disabled>
+            <span id="volume-value">100%</span>
+            <button id="save-btn">Salvar</button>
+            <p id="status"></p>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>

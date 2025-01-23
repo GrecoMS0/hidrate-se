@@ -1,0 +1,146 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    width: 300px;
+    border-radius: 12px;
+    background: #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #4fcdff;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+label, #reminder-status {
+    font-size: 18px;
+    color: #333;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#interval, #position {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-bottom: 15px;
+    background: white;
+    cursor: pointer;
+}
+
+#save-btn {
+    background: #4fcdff;
+    color: black;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+
+#save-btn:hover {
+    background: #00a8eb;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    margin: 10px 10px 20px 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+#volume {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background-color: #d3d3d3;
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s ease;
+    margin: 10px 0;
+}
+
+#volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #4fcdff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3 ease;
+}
+
+#volume::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #4fcdff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#volume:hover {
+    background: #c0c0c0;
+}
+
+#volume::-webkit-slider-thumb:hover {
+    background: #00a8eb;
+}
+
+#volume::-moz-range-thumb:hover {
+    background: #00a8eb;
+}
+
+#volume-value {
+    display: block;
+    font-size: 18px;
+    margin-top: 5px;
+    color: #333;
+}
