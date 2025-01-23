@@ -36,7 +36,7 @@ Como a extensão ainda não está disponível na Chrome Web Store, é necessári
 #### 2️⃣ **Carregue a extensão no navegador**
    - Abra o navegador Google Chrome ou outro baseado em Chromium (Microsoft Edge, Opera, OperaGX, Brave e Vivaldi).
    - Acesse `chrome://extensions/` ou vá até o gerenciamento de extensões no menu do navegador.
-   - Ative o Modo do Desenvolvedor no canto superior direito da página.
+   - Ative o Modo do Desenvolvedor (deve estar localizado no canto superior direito da página).
    - Clique em "Carregar sem compactação".
    - Selecione a pasta onde os arquivos da extensão foram extraídos.
    - A extensão será adicionada e o ícone aparecerá na barra de extensões do navegador.
