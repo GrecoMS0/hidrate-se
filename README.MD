@@ -63,18 +63,17 @@ Como a extensão ainda não está disponível na Chrome Web Store, é necessári
 ### 📂 **Estrutura de arquivos**
 
 hidrate-se/
-│-- assets/
-│   ├── icon.png (ícone da extensão)
-│   ├── drop-01.mp3 (sons de notificação)
-│   ├── drop-02.mp3
-│   ├── drop-03.mp3
-│   ├── drop-04.mp3
-│-- popup.html (interface da extensão)
-│-- styles.css (estilização da interface)
-│-- popup.js (lógica da interface do popup)
-│-- background.js (controle de alarmes e notificações)
-│-- manifest.json (configuração da extensão)
-│-- README.md (documentação)
+   - icon.png (ícone da extensão)
+   - drop-01.mp3 (sons de notificação)
+   - drop-02.mp3
+   - drop-03.mp3
+   - drop-04.mp3
+   - popup.html (interface da extensão)
+   - styles.css (estilização da interface)
+   - popup.js (lógica da interface do popup)
+   - background.js (controle de alarmes e notificações)
+   - manifest.json (configuração da extensão)
+   - README.md (documentação)
 
 
 ### ❗ **Possíveis problemas e soluções**
@@ -92,4 +91,3 @@ hidrate-se/
 - **A extensão não carrega:**
   - 🔄 Verifique se o Chrome está atualizado para a versão mais recente.
   - 🔄 Recarregue a extensão em `chrome://extensions/`.
-
