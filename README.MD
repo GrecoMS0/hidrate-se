@@ -34,7 +34,7 @@ Como a extensão ainda não está disponível na Chrome Web Store, é necessári
      4. Extraia o conteúdo do arquivo ZIP para uma pasta no seu computador.
 
 #### 2️⃣ **Carregue a extensão no navegador**
-   - Abra o navegador Google Chrome ou outro baseado em Chromium.
+   - Abra o navegador Google Chrome ou outro baseado em Chromium (Microsoft Edge, Opera, OperaGX, Brave e Vivaldi).
    - Acesse `chrome://extensions/` ou vá até o gerenciamento de extensões no menu do navegador.
    - Ative o Modo do Desenvolvedor no canto superior direito da página.
    - Clique em "Carregar sem compactação".
