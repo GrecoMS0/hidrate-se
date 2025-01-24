@@ -11,28 +11,40 @@
 <body>
     <div class="container">
         <h1>Hidrate-se</h1>
+        <hr>
         <div class="input-group">
             <label for="interval">Lembre-me a cada:</label>
             <select id="interval">
-                <option value="15">15 minutos</option>
-                <option value="30">30 minutos</option>
-                <option value="60">1 hora</option>
-                <option value="120">2 horas</option>
-                <option value="150">2.5 horas</option>
+                <option value="15">15 Minutos</option>
+                <option value="30">30 Minutos</option>
+                <option value="60">1 Hora</option>
+                <option value="120">2 Horas</option>
+                <option value="150">2 Horas e 30 Minutos</option>
             </select>
+            <hr>
             <label class="switch">
                 <input type="checkbox" id="toggle-reminder">
                 <span class="slider round"></span>
             </label>
+            <label for="toggle-reminder-timer">Desativar Lembretes por:</label>
+            <select id="toggle-reminder-timer">
+                <option value="30">30 Minutos</option>
+                <option value="60">1 Hora</option>
+                <option value="90">1 Hora e 30 Minutos</option>
+                <option value="120">2 Horas</option>
+                <option value="">Até eu ativar novamente</option>
+            </select>
             <span id="reminder-status"></span>
+            <hr>
             <label for="position">Posição do lembrete:</label>
-            <select id="position">
+            <select id="position" disabled>
                 <option value="top-right">Superior Direito</option>
                 <option value="top-left">Superior Esquerdo</option>
                 <option value="bottom-right">Inferior Direito</option>
                 <option value="bottom-left">Inferior Esquerdo</option>
                 <option value="center">Centro da Tela</option>
             </select>
+            <hr>
             <label for="toggle-sound">Ativar Som:</label>
             <label class="switch">
                 <input type="checkbox" id="toggle-sound">
@@ -41,6 +53,7 @@
             <label for="volume">Volume:</label>
             <input type="range" id="volume" min="0" max="100" value="100" disabled>
             <span id="volume-value">100%</span>
+            <hr>
             <button id="save-btn">Salvar</button>
             <p id="status"></p>
         </div>

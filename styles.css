@@ -25,7 +25,7 @@ label, #reminder-status {
     margin-bottom: 10px;
 }
 
-#interval, #position {
+#interval, #position, #toggle-reminder-timer {
     width: 100%;
     padding: 10px;
     border-radius: 8px;
@@ -143,4 +143,11 @@ input:checked + .slider:before {
     font-size: 18px;
     margin-top: 5px;
     color: #333;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+    margin: 20px 0;
 }
