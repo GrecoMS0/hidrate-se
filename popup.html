@@ -6,14 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hidrate-se</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap">
 </head>
 
 <body>
     <div class="container">
-        <h1>Hidrate-se</h1>
+        <div class="header">
+            <input type="checkbox" id="toggle-night-mode">
+            <label for="toggle-night-mode" class="icon-mode">
+                <i class="fas fa-moon moon-icon"></i>
+                <i class="fas fa-sun sun-icon"></i>
+            </label>
+            <h1>Hidrate-se</h1>
+        </div>
         <hr>
         <div class="input-group">
-            <label for="interval">Lembre-me a cada:</label>
+            <label for="interval">Lembre-me a cada</label>
             <select id="interval">
                 <option value="15">15 Minutos</option>
                 <option value="30">30 Minutos</option>
@@ -26,7 +35,7 @@
                 <input type="checkbox" id="toggle-reminder">
                 <span class="slider round"></span>
             </label>
-            <label for="toggle-reminder-timer">Desativar Lembretes por:</label>
+            <label for="toggle-reminder-timer">Desativar Lembretes por</label>
             <select id="toggle-reminder-timer">
                 <option value="30">30 Minutos</option>
                 <option value="60">1 Hora</option>
@@ -36,7 +45,7 @@
             </select>
             <span id="reminder-status"></span>
             <hr>
-            <label for="position">Posição do lembrete:</label>
+            <label for="position">Posição do lembrete</label>
             <select id="position" disabled>
                 <option value="top-right">Superior Direito</option>
                 <option value="top-left">Superior Esquerdo</option>
@@ -45,17 +54,16 @@
                 <option value="center">Centro da Tela</option>
             </select>
             <hr>
-            <label for="toggle-sound">Ativar Som:</label>
+            <label for="toggle-sound">Ativar Som</label>
             <label class="switch">
                 <input type="checkbox" id="toggle-sound">
                 <span class="slider round"></span>
             </label>
-            <label for="volume">Volume:</label>
+            <label for="volume">Volume</label>
             <input type="range" id="volume" min="0" max="100" value="100" disabled>
             <span id="volume-value">100%</span>
             <hr>
             <button id="save-btn">Salvar</button>
-            <p id="status"></p>
         </div>
     </div>
     <script src="popup.js"></script>

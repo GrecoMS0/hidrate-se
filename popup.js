@@ -10,11 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const volumeValue = document.getElementById("volume-value");
     const toggleReminderTimer = document.getElementById("toggle-reminder-timer");
     const selects = document.querySelectorAll("select");
+    const nightModeToggle = document.getElementById("toggle-night-mode");
 
     // Ver se API do Chrome está disponível
     if (chrome.storage) {
         // Carregar o que foi salvo
-        chrome.storage.sync.get(["reminderInterval", "reminderActive", "reminderPosition", "playSound", "volume", "disableDuration"], (result) => {
+        chrome.storage.sync.get(["reminderInterval", "reminderActive", "reminderPosition", "playSound", "volume", "disableDuration", "nightMode"], (result) => {
             if (result.reminderInterval) {
                 intervalSelect.value = result.reminderInterval;
             }
@@ -38,6 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 toggleReminderTimer.value = "";
             }
 
+            nightModeToggle.checked = !!result.nightMode;
+            document.body.classList.toggle("night-mode", nightModeToggle.checked);
+
             updateReminderStatus();
         });
 
@@ -50,6 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const selectedVolume = volumeSlider.value;
             const disableDuration = toggleReminderTimer.disabled ? null : toggleReminderTimer.value;
 
+            saveBtn.disabled = true;
+            saveBtn.style.pointerEvents = "none";
+
             chrome.storage.sync.set({
                 reminderInterval: selectedInterval,
                 reminderActive: selectedReminder,
@@ -58,7 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 volume: selectedVolume,
                 disableDuration: disableDuration
             }, () => {
-                statusText.textContent = "Configuração salva!";
+                saveBtn.textContent = "Configuração salva!";
+                saveBtn.style.backgroundColor = "#4CAF50";
+                saveBtn.classList.add('active');
+
                 chrome.runtime.sendMessage({
                     action: "setAlarm",
                     interval: selectedInterval,
@@ -66,8 +76,21 @@ document.addEventListener("DOMContentLoaded", () => {
                     position: selectedPosition,
                     disableDuration: disableDuration
                 });
+
+                setTimeout(() => {
+                    saveBtn.textContent = "Salvar";
+                    saveBtn.style.backgroundColor = "";
+                    saveBtn.disabled = false;
+                    saveBtn.style.pointerEvents = "auto";
+                }, 3000);
             });
         });
+
+        nightModeToggle.addEventListener("change", () => {
+            const isNightMode = nightModeToggle.checked;
+            document.body.classList.toggle("night-mode", isNightMode);
+            chrome.storage.sync.set({ nightMode: isNightMode });
+        })
     } else {
         console.error("A API chrome.storage não está disponível. Execute como extensão.");
     }
@@ -93,10 +116,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const updateReminderStatus = () => {
         if (toggleReminder.checked) {
             reminderStatus.textContent = "Lembretes ativados";
-            reminderStatus.style.color = "green";
+            reminderStatus.style.color = "#4CAF50";
+            reminderStatus.style.transition = "color 0.3s ease-in-out";
+            reminderStatus.style.fontWeight = "bolder";
         } else {
             reminderStatus.textContent = "Lembretes desativados";
-            reminderStatus.style.color = "red";
+            reminderStatus.style.color = "#F44336";
+            reminderStatus.style.transition = "color 0.3s ease-in-out";
+            reminderStatus.style.fontWeight = "bolder";
         }
     };
 

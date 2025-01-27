@@ -1,5 +1,7 @@
+/* Estilos Gerais */
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Nunito', sans-serif;
     padding: 20px;
     width: 300px;
     border-radius: 12px;
@@ -8,55 +10,107 @@ body {
     text-align: center;
 }
 
-.input-group {
+select,
+button,
+input,
+label {
+    font-family: inherit;
+}
+
+/* Estilos do Cabeçalho */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 20px;
 }
 
 h1 {
     color: #4fcdff;
     font-size: 28px;
+    margin: 0;
+}
+
+/* Estilos de Inputs e Labels */
+
+.input-group {
     margin-bottom: 20px;
 }
 
-label, #reminder-status {
+label, 
+#reminder-status {
     font-size: 18px;
     color: #333;
     display: block;
     margin-bottom: 10px;
 }
 
-#interval, #position, #toggle-reminder-timer {
+/* Estilos dos Selects */
+
+#interval,
+#position,
+#toggle-reminder-timer {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border-radius: 8px;
-    border: 1px solid #ccc;
     font-size: 16px;
     margin-bottom: 15px;
-    background: white;
+    background: linear-gradient(135deg, #ffffff, #e8faff);
+    color: #333;
     cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    appearance: none;
+    position: relative;
 }
 
+#interval:hover,
+#position:hover,
+#toggle-reminder-timer:hover {
+    border-color: #00a8eb;
+    box-shadow: 0 0 10px rgba(79, 205, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Estilos do Botão 'Salvar' */
+
 #save-btn {
-    background: #4fcdff;
+    background: linear-gradient(135deg, #4fcdff, #00a8eb);
     color: black;
     border: none;
     padding: 12px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: bolder;
     width: 100%;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
 }
 
 #save-btn:hover {
-    background: #00a8eb;
+    background: linear-gradient(135deg, #00a8eb, #007bb5);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 168, 235, 0.5);
 }
+
+#save-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Estilos dos Switches */
 
 .switch {
     position: relative;
     display: inline-block;
-    width: 50px;
-    height: 24px;
+    width: 40px;
+    height: 20px;
     margin: 10px 10px 20px 0;
 }
 
@@ -70,9 +124,10 @@ label, #reminder-status {
     position: absolute;
     cursor: pointer;
     inset: 0;
-    background-color: #ccc;
-    transition: .4s;
-    border-radius: 24px;
+    background-color: #a0d7e7;
+    transition: all 0.4s ease;
+    border-radius: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .slider:before {
@@ -80,62 +135,73 @@ label, #reminder-status {
     position: absolute;
     height: 16px;
     width: 16px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
+    left: 2px;
+    bottom: 2px;
+    background-color: #fff;
+    transition: all 0.4s ease;
     border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
 input:checked + .slider {
-    background-color: #4CAF50;
+    background-color: #4FC3F7;
+    box-shadow: 0 0 15px rgba(79, 195, 247, 0.7);
 }
 
 input:checked + .slider:before {
-    transform: translateX(26px);
+    transform: translateX(20px);
+    background-color: #e0f7fa;
+    box-shadow: 0 0 8px rgba(79, 195, 247, 0.7);
 }
+
+input:checked + .slider:hover {
+    background-color: #29B6F6;
+    box-shadow: 0 0 20px rgba(79, 195, 247, 0.7);
+}
+
+/* Estilos do Controle de Volume */
 
 #volume {
     -webkit-appearance: none;
     width: 100%;
     height: 10px;
-    background-color: #d3d3d3;
-    border-radius: 5px;
+    background-color: #81d4fa;
+    border-radius: 6px;
     outline: none;
     transition: background 0.3s ease;
     margin: 10px 0;
 }
 
+#volume:hover {
+    background: #4fc3f7;
+}
+
 #volume::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
-    background: #4fcdff;
+    width: 18px;
+    height: 18px;
+    background: #fff;
     border-radius: 50%;
     cursor: pointer;
-    transition: background 0.3 ease;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, transform 0.3 ease;
 }
 
 #volume::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     background: #4fcdff;
     border-radius: 50%;
     cursor: pointer;
-    transition: background 0.3s ease;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, transform 0.3 ease;
 }
 
-#volume:hover {
-    background: #c0c0c0;
-}
-
-#volume::-webkit-slider-thumb:hover {
-    background: #00a8eb;
-}
-
+#volume::-webkit-slider-thumb:hover,
 #volume::-moz-range-thumb:hover {
-    background: #00a8eb;
+    background: #29B6F6;
+    transform: scale(1.3);
 }
 
 #volume-value {
@@ -145,9 +211,96 @@ input:checked + .slider:before {
     color: #333;
 }
 
+/* Estilos das Linhas Separadoras */
+
 hr {
     border: none;
     height: 1px;
     background-color: #ccc;
     margin: 20px 0;
+}
+
+/* Estilos do Modo Noturno */
+
+#night-mode-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.icon-mode {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+}
+
+.icon-mode .moon-icon {
+    display: block;
+    color: rgb(93, 0, 155);
+}
+
+.icon-mode .sun-icon {
+    display: none;
+    color: rgb(255, 166, 0);
+}
+
+#toggle-night-mode {
+    display: none;
+}
+
+#toggle-night-mode:checked + .icon-mode .moon-icon {
+    display: none;
+}
+
+#toggle-night-mode:checked + .icon-mode .sun-icon {
+    display: block;
+}
+
+.night-mode {
+    background-color: #222;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.night-mode h1 {
+    color: #4fcdff;
+}
+
+.night-mode label,
+.night-mode #reminder-status,
+.night-mode #volume-value {
+    color: #ddd;
+}
+
+.night-mode select,
+.night-mode input {
+    background-color: #444;
+    color: black;
+    border: 1px solid #666;
+}
+
+.night-mode button {
+    background-color: #555;
+    color: #fff;
+    border: 1px solid #777;
+}
+
+.night-mode hr {
+    background-color: #555;
+}
+
+.night-mode #save-btn {
+    background: #4fcdff;
+    color: black;
+}
+
+.night-mode #save-btn:hover {
+    background: #00a8eb;
+}
+
+.night-mode #volume::-webkit-slider-thumb,
+.night-mode #volume::-moz-range-thumb {
+    background: #4fcdff;
 }
