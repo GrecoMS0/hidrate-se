@@ -90,3 +90,5 @@ hidrate-se/
 - **A extensão não carrega:**
   - 🔄 Verifique se o Chrome está atualizado para a versão mais recente.
   - 🔄 Recarregue a extensão em `chrome://extensions/`.
+
+### 💡 Sinta-se livre para deixar sugestões de novas funcionalidades e melhorias, assim como relatar problemas relacionados à extensão!
