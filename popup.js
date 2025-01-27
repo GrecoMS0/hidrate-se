@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (result.reminderInterval) {
                 intervalSelect.value = result.reminderInterval;
             }
-            toggleReminder.checked = !!result.reminderActive;
+            toggleReminder.checked = result.reminderActive;
             positionSelect.disabled = !result.reminderActive;
             toggleReminderTimer.disabled = !!result.reminderActive;
             reminderStatus.textContent = result.reminderActive ? "Lembretes ativados" : "Lembretes desativados";
@@ -34,6 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (result.disableDuration) {
                 toggleReminderTimer.value = result.disableDuration;
+            } else {
+                toggleReminderTimer.value = "";
             }
 
             updateReminderStatus();
@@ -46,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const selectedPosition = positionSelect.value;
             const selectedSound = toggleSound.checked;
             const selectedVolume = volumeSlider.value;
-            const disableDuration = toggleReminderTimer.value;
+            const disableDuration = toggleReminderTimer.disabled ? null : toggleReminderTimer.value;
 
             chrome.storage.sync.set({
                 reminderInterval: selectedInterval,
@@ -106,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const isChecked = toggleReminder.checked;
         positionSelect.disabled = !isChecked;
         reminderStatus.textContent = isChecked ? "Lembretes ativados" : "Lembretes desativados";
-        toggleReminderTimer.disabled = !isChecked;
+        toggleReminderTimer.disabled = isChecked;
         chrome.storage.sync.set({ reminderActive: isChecked });
     });
 
