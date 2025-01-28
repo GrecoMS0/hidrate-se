@@ -2,7 +2,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "setAlarm") {
         const interval = parseInt(request.interval);
         const disableDuration = parseInt(request.disableDuration);
-        
+
         if (!isNaN(interval)) {
             chrome.alarms.create("drinkWaterReminder", { periodInMinutes: interval });
             console.log(`Alarme Definido para cada ${interval} minutos.`);
@@ -45,20 +45,20 @@ chrome.alarms.onAlarm.addListener((alarm) => {
                     "Mantenha-se hidratado, assim você evita de virar uma uva passa! 🍇💧",
                     "Beber água evita paulada... VAI SE HIDRATAR! 💧",
                     "Beber água deixa a pele bonita e os rins felizes! 💧😄",
-                    "Quer evitar a ressaca? Bebe água agora! 💧",
+                    "Quer evitar a ressaca? Beba água agora! 💧",
                     "Não deixe sua garganta virar um deserto do Saara! 💧"
                 ];
                 const message = messages[Math.floor(Math.random() * messages.length)];
-    
+
                 const audioFiles = [
                     "drop-01.mp3",
                     "drop-02.mp3",
                     "drop-03.mp3",
                     "drop-04.mp3"
                 ];
-    
+
                 const audioFile = audioFiles[Math.floor(Math.random() * audioFiles.length)];
-    
+
                 chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
                     chrome.scripting.executeScript({
                         target: { tabId: tabs[0].id },
@@ -66,33 +66,59 @@ chrome.alarms.onAlarm.addListener((alarm) => {
                             const reminderDiv = document.createElement('div');
                             reminderDiv.textContent = msg;
                             reminderDiv.style.position = "fixed";
-                            reminderDiv.style.backgroundColor = "rgba(0, 123, 255, 0.9)";
-                            reminderDiv.style.color = "white";
+                            reminderDiv.style.backgroundColor = "rgba(0, 123, 255, 0.6)";
+                            reminderDiv.style.color = "#f0f0f0";
                             reminderDiv.style.padding = "15px 25px";
-                            reminderDiv.style.borderRadius = "10px";
-                            reminderDiv.style.fontSize = "20px";
-                            reminderDiv.style.fontWeight = "bold";
-                            reminderDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+                            reminderDiv.style.borderRadius = "20px";
+                            reminderDiv.style.fontSize = "18px";
+                            reminderDiv.style.fontWeight = "600";
+                            reminderDiv.style.boxShadow = "0 15px 30px rgba(0, 0, 0, 0.3)";
                             reminderDiv.style.zIndex = "9999";
                             reminderDiv.style.display = "flex";
-                            reminderDiv.style.justifyContent = "center";
+                            reminderDiv.style.justifyContent = "space-between";
                             reminderDiv.style.alignItems = "center";
-                            reminderDiv.style.transition = "opacity 0.5s";
-    
+                            reminderDiv.style.transition = "opacity 0.5s, transform 0.5s";
+                            reminderDiv.style.opacity = "0";
+                            reminderDiv.style.transform = "translateY(20px)";
+                            reminderDiv.style.backdropFilter = "blur(5px)";
+
                             const closeButton = document.createElement('button');
                             closeButton.textContent = "X";
-                            closeButton.style.marginLeft = "10px";
-                            closeButton.style.backgroundColor = "red";
-                            closeButton.style.color = "white";
-                            closeButton.style.border = "none";
+                            closeButton.style.marginLeft = "15px";
+                            closeButton.style.backgroundColor = "transparent";
+                            closeButton.style.color = "#f0f0f0";
+                            closeButton.style.border = "2px solid #f0f0f0";
                             closeButton.style.borderRadius = "50%";
-                            closeButton.style.width = "25px";
-                            closeButton.style.height = "25px";
+                            closeButton.style.width = "35px";
+                            closeButton.style.height = "35px";
                             closeButton.style.cursor = "pointer";
                             closeButton.style.fontSize = "16px";
-                            closeButton.addEventListener('click', () => reminderDiv.remove());
+                            closeButton.style.display = "flex";
+                            closeButton.style.alignItems = "center";
+                            closeButton.style.justifyContent = "center";
+                            closeButton.style.transition = "background-color 0.3s, color 0.3s, transform 0.3s";
+                            closeButton.addEventListener('mouseenter', () => {
+                                closeButton.style.backgroundColor = "#f0f0f0";
+                                closeButton.style.color = "#007BFF";
+                                closeButton.style.transform = "scale(1.2)";
+                            });
+                            closeButton.addEventListener('mouseleave', () => {
+                                closeButton.style.backgroundColor = "transparent";
+                                closeButton.style.color = "#f0f0f0";
+                                closeButton.style.transform = "scale(1)";
+                            });
+                            closeButton.addEventListener('click', () => {
+                                reminderDiv.style.opacity = "0";
+                                reminderDiv.style.transform = "translateY(20px)";
+                                setTimeout(() => reminderDiv.remove(), 500);
+                            });
                             reminderDiv.appendChild(closeButton);
-    
+
+                            setTimeout(() => {
+                                reminderDiv.style.opacity = "1";
+                                reminderDiv.style.transform = "translateY(0)";
+                            }, 50);
+
                             switch (pos) {
                                 case "top-left":
                                     reminderDiv.style.top = "20px";
@@ -111,18 +137,18 @@ chrome.alarms.onAlarm.addListener((alarm) => {
                                     reminderDiv.style.right = "20px";
                                     break;
                                 case "center":
-                                    reminderDiv.style.top = "50%";
-                                    reminderDiv.style.left = "50%";
-                                    reminderDiv.style.transform = "translate(-50%, -50%)";
+                                    reminderDiv.style.top = "40%";
+                                    reminderDiv.style.left = "30%";
+                                    reminderDiv.style.transform = "translate(-40%, -30%)";
                                     break;
                             }
-    
+
                             if (playSound) {
                                 const audioElement = new Audio(audio);
                                 audioElement.volume = volume / 100;
                                 audioElement.play();
                             }
-    
+
                             document.body.appendChild(reminderDiv);
                             reminderDiv.style.opacity = "1";
                             setTimeout(() => {
