@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const intervalSelect = document.getElementById("interval");
     const saveBtn = document.getElementById("save-btn");
-    const statusText = document.getElementById("status");
     const toggleReminder = document.getElementById("toggle-reminder");
     const reminderStatus = document.getElementById("reminder-status");
     const positionSelect = document.getElementById("position");

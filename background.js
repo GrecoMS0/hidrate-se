@@ -70,6 +70,7 @@ chrome.alarms.onAlarm.addListener((alarm) => {
                             reminderDiv.style.color = "#f0f0f0";
                             reminderDiv.style.padding = "15px 25px";
                             reminderDiv.style.borderRadius = "20px";
+                            reminderDiv.style.fontFamily = "'Nunito', sans-serif";
                             reminderDiv.style.fontSize = "18px";
                             reminderDiv.style.fontWeight = "600";
                             reminderDiv.style.boxShadow = "0 15px 30px rgba(0, 0, 0, 0.3)";
